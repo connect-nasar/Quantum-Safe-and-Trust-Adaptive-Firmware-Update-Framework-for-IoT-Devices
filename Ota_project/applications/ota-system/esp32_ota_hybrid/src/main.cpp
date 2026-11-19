@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #ifdef JOURNAL_DEVICE_STRESS
-#include "journal_stress.h"
+#include "device_stress_test.h"
 #endif
 
 extern "C" {
