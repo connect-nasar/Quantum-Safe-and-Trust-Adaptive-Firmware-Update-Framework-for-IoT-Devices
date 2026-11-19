@@ -361,7 +361,10 @@ sequenceDiagram
     S->>S: Persist exact completed package
     S->>W: Report completion
     S->>GUI: Atomically publish generation pointer
-    D->>GUI: Poll manifest and download package
+    D->>GUI: Poll for manifest over HTTP
+    GUI-->>D: Return manifest with available version and sizes
+    D->>GUI: Request encrypted firmware and cryptographic files
+    GUI-->>D: Return ciphertext, KEM ciphertext, nonce, tag, public key and signature
     D->>D: Check version, pinned key and XMSS signature
     D->>D: ML-KEM decapsulation and AES-GCM authentication
     D->>D: Finalize OTA image and reboot
@@ -369,6 +372,8 @@ sequenceDiagram
 ```
 
 Completion reporting is retried if uncertain. Publishing is tied to stored completed results; exact retries return the stored signature/ciphertext rather than signing again.
+
+The ESP32 initiates the HTTP requests; the GUI's HTTP server responds with the manifest and package files. The device then verifies and installs the update.
 
 ### Package construction and verification
 
