@@ -44,27 +44,156 @@ flowchart LR
 
 ## Repository layout
 
+The tree below lists all checked-in project files, including the C cryptographic sources and headers. The third-party SmartBFT subtree is collapsed because it contains upstream source, tests and dependencies. Generated files and private deployment state are excluded.
+
 ```text
 .
-├── README.md
 ├── Ota_project/
-│   ├── applications/ota-system/
-│   │   ├── xmss_ota_gui.py        Normal operator GUI and HTTP server
-│   │   ├── xmss_signer_python.py  Required witness-backed publishing entry point
-│   │   ├── core/                 Bridge, telemetry, advisory model and collection support
-│   │   ├── esp32_ota_hybrid/      PlatformIO ESP32 application
-│   │   └── trust_artifacts/       Advisory model and retained development data
-│   └── crypto-libs/
-│       ├── xmss/                 Shared C XMSS implementation
-│       ├── mlkem768/             Embedded ML-KEM implementation
-│       └── fips202/              Shared SHA-3/SHAKE implementation
-└── witness-quorum/
-    ├── witness/                  Python protocol, signer, ledger and observer
-    ├── engine/                   Go SmartBFT adapter
-    ├── native/                   No-signature XMSS state-advance adapter
-    ├── scripts/                  Build, provision, start, stop and integration tools
-    ├── tests/                    Reusable regression and adversarial test source
-    └── vendor-source/SmartBFT/    Pinned upstream source and Go dependencies
+│   ├── applications/
+│   │   └── ota-system/
+│   │       ├── core/
+│   │       │   ├── __init__.py  # Python package marker
+│   │       │   ├── ota_collection.py  # Retained development data collection support
+│   │       │   ├── ota_conditions.py  # Development scenario and condition support
+│   │       │   ├── ota_experiment.py  # Retained experiment orchestration support
+│   │       │   ├── ota_witness_bridge.py  # Signer subprocess API and immutable package access
+│   │       │   ├── paths.py  # Shared OTA application paths
+│   │       │   ├── telemetry.py  # Thread-safe telemetry snapshots and persistence
+│   │       │   └── trust_model.py  # Advisory readiness and availability model
+│   │       ├── esp32_ota_hybrid/
+│   │       │   ├── src/
+│   │       │   │   ├── journal_stress.h  # Device journal stress support
+│   │       │   │   ├── main.cpp  # ESP32 firmware download, verification and installation
+│   │       │   │   ├── network_config.example.h  # Example network configuration
+│   │       │   │   └── xmss_trusted_key.h  # Pinned publisher XMSS public key
+│   │       │   ├── partitions.csv  # ESP32 flash and OTA partition layout
+│   │       │   └── platformio.ini  # ESP32 build and library configuration
+│   │       ├── trust_artifacts/
+│   │       │   ├── dataset.csv  # Retained advisory-model development dataset
+│   │       │   ├── evaluation.json  # Retained model evaluation results
+│   │       │   ├── excluded_attempts.json  # Retained excluded development attempts
+│   │       │   ├── model.json  # Advisory model parameters
+│   │       │   └── REPORT.md  # Retained advisory-model development report
+│   │       ├── mlkem_encapsulate.c  # Legacy liboqs encapsulation helper
+│   │       ├── requirements.txt  # Python dependencies for this component
+│   │       ├── run_gui.cmd  # Launch the OTA GUI in its local Python environment
+│   │       ├── save_mlkem_public_key.py  # Extract device public key from serial output
+│   │       ├── xmss_ota_gui.py  # Operator GUI, HTTP package server and telemetry
+│   │       └── xmss_signer_python.py  # Witness-backed publishing CLI entry point
+│   ├── crypto-libs/
+│   │   ├── fips202/
+│   │   │   ├── src/
+│   │   │   │   ├── fips202.c
+│   │   │   │   └── fips202.h
+│   │   │   └── library.json  # PlatformIO library metadata
+│   │   ├── mlkem768/
+│   │   │   ├── src/
+│   │   │   │   ├── mlkem_native/
+│   │   │   │   │   ├── cbmc.h
+│   │   │   │   │   ├── common.h
+│   │   │   │   │   ├── compress.c
+│   │   │   │   │   ├── compress.h
+│   │   │   │   │   ├── debug.c
+│   │   │   │   │   ├── debug.h
+│   │   │   │   │   ├── indcpa.c
+│   │   │   │   │   ├── indcpa.h
+│   │   │   │   │   ├── kem.c
+│   │   │   │   │   ├── kem.h
+│   │   │   │   │   ├── mlkem_native_config.h
+│   │   │   │   │   ├── params.h
+│   │   │   │   │   ├── poly.c
+│   │   │   │   │   ├── poly.h
+│   │   │   │   │   ├── poly_k.c
+│   │   │   │   │   ├── poly_k.h
+│   │   │   │   │   ├── randombytes.h
+│   │   │   │   │   ├── sampling.c
+│   │   │   │   │   ├── sampling.h
+│   │   │   │   │   ├── symmetric.h
+│   │   │   │   │   ├── sys.h
+│   │   │   │   │   ├── verify.c
+│   │   │   │   │   ├── verify.h
+│   │   │   │   │   └── zetas.inc
+│   │   │   │   └── arduino_fips202.h  # Connect embedded ML-KEM to shared SHA-3/SHAKE
+│   │   │   └── library.json  # PlatformIO library metadata
+│   │   └── xmss/
+│   │       ├── src/
+│   │       │   ├── Makefile
+│   │       │   ├── XMSS_commons.c
+│   │       │   ├── XMSS_commons.h
+│   │       │   ├── XMSS_config.h
+│   │       │   ├── XMSS_core_fast.c
+│   │       │   ├── XMSS_core_fast.h
+│   │       │   ├── XMSS_hash.c
+│   │       │   ├── XMSS_hash.h
+│   │       │   ├── XMSS_hash_address.c
+│   │       │   ├── XMSS_hash_address.h
+│   │       │   ├── XMSS_hash_wrapper.c
+│   │       │   ├── XMSS_params.h
+│   │       │   ├── XMSS_randombytes.c
+│   │       │   ├── XMSS_randombytes.h
+│   │       │   ├── XMSS_sha256.c
+│   │       │   ├── XMSS_sha256.h
+│   │       │   ├── XMSS_utils.h
+│   │       │   ├── XMSS_wots.c
+│   │       │   ├── XMSS_wots.h
+│   │       │   ├── XMSS_xmss.c
+│   │       │   └── XMSS_xmss.h
+│   │       └── library.json  # PlatformIO library metadata
+│   └── .gitignore  # Exclude local state and generated files
+├── witness-quorum/
+│   ├── engine/
+│   │   ├── go.mod  # Go module and dependency declarations
+│   │   ├── go.sum  # Go dependency checksums
+│   │   └── main.go  # Go adapter for SmartBFT ordering and decision verification
+│   ├── native/
+│   │   └── xmss_advance.c  # No-signature XMSS state-advance adapter
+│   ├── scripts/
+│   │   ├── bootstrap.ps1  # Prepare local toolchains and Python dependencies
+│   │   ├── build.ps1  # Build native XMSS components and the Go engine
+│   │   ├── enroll_ota.py  # Enroll the OTA publisher/device connection
+│   │   ├── integration.py  # Witness integration and fault-scenario checks
+│   │   ├── make_compose.py  # Generate synthetic Docker deployment configuration
+│   │   ├── observer.ps1  # Launch the witness observer
+│   │   ├── provision_fresh.py  # Provision a fresh publisher and witness deployment
+│   │   ├── restart-observer.ps1  # Restart the witness observer
+│   │   ├── start.ps1  # Start the native witness deployment
+│   │   ├── stop.ps1  # Stop the native witness deployment
+│   │   └── test_ota_integration.py  # OTA publishing integration checks
+│   ├── tests/
+│   │   ├── test_adversarial.py  # Regression tests: adversarial
+│   │   ├── test_core.py  # Regression tests: core
+│   │   ├── test_deployment.py  # Regression tests: deployment
+│   │   ├── test_manifest_interop.py  # Regression tests: manifest interop
+│   │   └── test_native.py  # Regression tests: native
+│   ├── vendor-source/
+│   │   └── SmartBFT/  # Pinned upstream Go source, tests and vendored dependencies (subtree omitted)
+│   ├── witness/
+│   │   ├── __init__.py  # Python package marker
+│   │   ├── checkpoint.py  # Export and verify certified historical prefixes
+│   │   ├── client.py  # Authenticated witness client and request submission
+│   │   ├── codec.py  # Witness command and record encoding
+│   │   ├── crypto.py  # Cryptographic helpers, identities and token derivation
+│   │   ├── dashboard.py  # Read-only witness observer dashboard
+│   │   ├── deployment.py  # Resolve the active deployment directory
+│   │   ├── local.py  # Manage local witness processes
+│   │   ├── native.py  # Python interface to native XMSS functions
+│   │   ├── node.py  # Witness service and local Go-engine bridge
+│   │   ├── ota_signer.py  # Durable XMSS state, recovery and package publication
+│   │   ├── proof.py  # Authorization and consensus evidence verification
+│   │   ├── setup.py  # Provision witness identities and genesis configuration
+│   │   ├── store.py  # SQLite ledger transactions and replay audit
+│   │   └── transport.py  # Authenticated experimental witness transport
+│   ├── .dockerignore  # Exclude local files from Docker build context
+│   ├── .gitignore  # Exclude local state and generated files
+│   ├── ARCHITECTURE.md  # Earlier witness-ledger design reference
+│   ├── compose.yaml  # Synthetic Docker deployment services
+│   ├── Dockerfile  # Synthetic witness container image
+│   ├── IMPLEMENTATION.md  # Implemented witness behavior and boundaries
+│   ├── requirements.lock  # Pinned witness Python dependency versions
+│   └── requirements.txt  # Python dependencies for this component
+├── .gitattributes  # Repository text and line-ending rules
+├── .gitignore  # Exclude local state and generated files
+└── README.md  # Project overview, setup, architecture and operation
 ```
 
 Provisioned machines also contain ignored `runtime/`, `.venv/`, `.tools/`, compiled binaries, keys, package files and telemetry. These are local operational resources, not committed to the source repository.
