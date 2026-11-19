@@ -1,0 +1,31 @@
+# Python and local tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+# Reproducible build intermediates (existing tracked files remain tracked)
+.pio/
+/crypto-libs/xmss/build/
+/tmp/
+# Private signing material and device flash backups
+*.key
+/applications/ota-system/test/benchmarks/device_backup/
+# Generated active package and runtime state
+/applications/ota-system/firmware.*
+/applications/ota-system/input_firmware.bin
+/applications/ota-system/manifest.json
+/applications/ota-system/device_status.json
+/applications/ota-system/device_status_history.jsonl
+/applications/ota-system/trust_decisions.jsonl
+/applications/ota-system/device_serial.log
+/applications/ota-system/logs/
+/applications/ota-system/witness-connection.json
+/applications/ota-system/witness-enrollment.lock
+/applications/ota-system/witness-publication.json
+
+# Test scratch and vendored host builds
+/applications/ota-system/test/.tmp/
+/crypto-libs/host/liboqs/build/
+
+/applications/ota-system/test/.build/

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "features": [
+    "rssi_median",
+    "rssi_min",
+    "heap_min",
+    "heap_drop",
+    "http_latency_median_ms",
+    "http_latency_p95_ms",
+    "failure_fraction",
+    "http_failure_rate",
+    "reconnects_per_minute",
+    "offline_fraction",
+    "unexpected_reset_fraction"
+  ],
+  "labels": [
+    "nominal",
+    "slow_service",
+    "service_unavailable"
+  ],
+  "model_type": "gini_decision_tree",
+  "max_depth": 2,
+  "min_leaf": 4,
+  "trained_at": "2026-10-17T17:26:06.048700+00:00",
+  "tree": {
+    "prediction": "nominal",
+    "counts": {
+      "nominal": 24,
+      "slow_service": 18,
+      "service_unavailable": 18
+    },
+    "samples": 60,
+    "feature": "http_latency_median_ms",
+    "threshold": 325.5,
+    "left": {
+      "prediction": "nominal",
+      "counts": {
+        "nominal": 24,
+        "slow_service": 0,
+        "service_unavailable": 18
+      },
+      "samples": 42,
+      "feature": "failure_fraction",
+      "threshold": 0.1206896551724138,
+      "left": {
+        "prediction": "nominal",
+        "counts": {
+          "nominal": 24,
+          "slow_service": 0,
+          "service_unavailable": 0
+        },
+        "samples": 24
+      },
+      "right": {
+        "prediction": "service_unavailable",
+        "counts": {
+          "nominal": 0,
+          "slow_service": 0,
+          "service_unavailable": 18
+        },
+        "samples": 18
+      }
+    },
+    "right": {
+      "prediction": "slow_service",
+      "counts": {
+        "nominal": 0,
+        "slow_service": 18,
+        "service_unavailable": 0
+      },
+      "samples": 18
+    }
+  },
+  "scope": "Observed pre-update service condition, not compromise or future installation failure"
+}

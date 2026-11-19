@@ -1,0 +1,9 @@
+.venv
+.tools
+runtime
+bin
+.git
+vendor-source/SmartBFT/.git
+tests
+reports
+__pycache__

@@ -1,0 +1,180 @@
+name: witness-quorum
+services:
+  witness-1:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "1", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-1.json:/runtime/secrets/node-1.json:ro
+      - ./runtime/docker/data/node-1:/runtime/data/node-1
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10101),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-2:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "2", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-2.json:/runtime/secrets/node-2.json:ro
+      - ./runtime/docker/data/node-2:/runtime/data/node-2
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10102),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-3:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "3", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-3.json:/runtime/secrets/node-3.json:ro
+      - ./runtime/docker/data/node-3:/runtime/data/node-3
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10103),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-4:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "4", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-4.json:/runtime/secrets/node-4.json:ro
+      - ./runtime/docker/data/node-4:/runtime/data/node-4
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10104),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-5:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "5", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-5.json:/runtime/secrets/node-5.json:ro
+      - ./runtime/docker/data/node-5:/runtime/data/node-5
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10105),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-6:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "6", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-6.json:/runtime/secrets/node-6.json:ro
+      - ./runtime/docker/data/node-6:/runtime/data/node-6
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10106),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  witness-7:
+    build: .
+    image: witness-quorum:research
+    command: ["--root", "/runtime", "--id", "7", "--engine", "/app/bin/witness-engine"]
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 512m
+    cpus: 1.0
+    tmpfs: [/tmp:size=32m]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/node-7.json:/runtime/secrets/node-7.json:ro
+      - ./runtime/docker/data/node-7:/runtime/data/node-7
+    networks: [witness]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import socket; socket.create_connection(('127.0.0.1',10107),2).close()"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+  client:
+    image: witness-quorum:research
+    profiles: [tools]
+    entrypoint: [python, -m, witness.client]
+    command: [status, --root, /runtime]
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    volumes:
+      - ./runtime/docker/genesis.json:/runtime/genesis.json:ro
+      - ./runtime/docker/admin.pub:/runtime/admin.pub:ro
+      - ./runtime/docker/secrets/client.json:/runtime/secrets/client.json:ro
+      - ./runtime/docker/client-events:/runtime/client-events
+    networks: [witness]
+networks:
+  witness:
+    internal: true

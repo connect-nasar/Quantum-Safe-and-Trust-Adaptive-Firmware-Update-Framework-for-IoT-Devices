@@ -1,0 +1,538 @@
+[
+  {
+    "attempt_id": "01a5bd5fbdab4819bb3610b24aac73d0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "06ca49bcde5b49d186057d8249dad0f2",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "08ae958a35184203b232a5a8b33d6ca8",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "0b4aeea342a849a080e58bfed9b53088",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "0c50043c15b34d2e8373b77811a9efb5",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "0ce3f44319134af9b50d350ef799417c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "0da1b38862c14c10903470ce833ed5b0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "0da4bee4f32e497e8bfde2d102d79dea",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "12bb89520b1d472caa107d05c2a4d38e",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "12bde8021da2474a9fee34dc42d5344f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "1348fa90814448448a935afde947bc6c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "14072349e545486283ff58e1b421a438",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "1686c608f1364355bf453a35c5712793",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "1a3a1d4afaa44dd788b0350339ce239e",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "1ba785d1cf974326aa694a4b5565672b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "1f814e868a1c4c09bc5ecb07aaa2fb5f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "212d959907ed42c1a2afd81493de02ee",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "240afd0070da4b4d93ce39d8efc5789c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "278bf858904845968e697a15df87d76b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "2927cfd2134145d7920f810300912eef",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "2a3244f6a7b945e98311d839cdd7ffb3",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "2d49d50470f24eb0a5e03d8e94016d77",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "2e0c25efbd73407eafdf41354e074926",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "332d345d84514cb19df86ebe864ecbec",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "3355ffb1748048bca60a0ba812e7a736",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "35a99db2506c42459f56689dce771b1e",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "37dceee0d5004986bafee88e76595520",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "3a7bd1b5bbdd479d97f490eda2d10630",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "4035dc44acb74d6589f2cea17957695c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "436e66c6b8f14050930e05f34a24b49a",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "466fd748c138400e821cf65344c6ab0c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "4e25a01f01e24a51a16aea55670dea56",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "4e38d2b6d9604a6ab6937b93c1f3fbbb",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "4ecce0e89fa04ea7a6e133889f6c91c4",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "4fb36b8f09414087b617ce20eafcd154",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "514a43d9af454a4d8a316881903e141f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "52cca1b50bd84f4eaf55c2e51dd1b278",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "564ec513c3244c8ab57ac7d40b14dba0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "58feb076a6c04149a987b5707ec3c43b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "5a464ed509c24ab686334074ca6f2c78",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "5b2bcf0ed70e4116acc492218426f963",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "5bcde23537c6450c96a29c44c3c7619c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "5eebc68a89f046418a6cd4b7a503fd00",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "634a8c51b2be4c74a965f65cd20f736b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "65ecda813eea4cbda76f4b6d8702de14",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "66171c6c869b48c6845c7b9084a7a463",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "6b0ef0d3ec9e4c29bc4c1f7e1502a7a7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "6c8278286001450081c37931605be501",
+    "reason": "incomplete or failed run; retained separately for case review"
+  },
+  {
+    "attempt_id": "7448cffecf5c4ee1a006f2ba3f26f7e6",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "769665de79f44eca9be7b3ffc2e0f1f3",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "7a54ae4780cf4e718e7565f128886e9c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "7b24a26cfb0c476b8253d4a7192d0f66",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "7c84c6d21b344c94ae8197cf628f2ed7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "7df88e796a9d426bace3c3848609772f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "80ccc8cc67614ac9a059a821964b51b5",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "821f48e999dd42cbbd977d4e3cf1aaf4",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "8359a0ee91fa4471bf0e750a06484444",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "838f19ede456471eb024d9b7a9c09e54",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "845478ff55ef46909c07b95f61856dc5",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "86c764ee21e0493c92c66a930292e427",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "89cde531525845d4ac27e0bf999a5d0b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "8c308782134c4bdd8085ce6a0de1ecde",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "8e19d480f73b40dbb6e540046f461d4a",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "8fb46f299fcd40c8a869cae89e877764",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9661fac271e842fda0591f4cded854a8",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "96b4414e7eab4ba6a8704638ca040be7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9854dc8d3014441ba339f8879f5da178",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "990e28ff4d15430a88f6d2944ed0b192",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9b3137623aed44239b29fab43ff20508",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9c7c8fb946ab42599556c1ff791179b3",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9dbfb2fe647c4632ae4b2145ff6676cc",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "9e959e306b35484e8d517cefa4039343",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a1adb60fa2024574aa6274853e444dba",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a365f64be7844acba0a728b3e236be54",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a397210d727f436f962ea4c89653b067",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a579d48a15154d9991f82692d86f19d0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a8c7d39afcbe4af29a68ab20514ee7ee",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "a92921000f02491cbad8a98e3bbbe615",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "aa6205f536a647f7b3b54fd0151bab6d",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "aa847d54a39c4b8e87173908732275fd",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "abb46d31496a4d709684eeedd716c590",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "abd4b8cbf19f46ecbd1ab37739b9d63e",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "af1b51d73f414441b62b91d269012372",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "af27ab6da78144c78f5abd3acc01e1f7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "af3243aa34274e2b8775d89f0c6c9bd5",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "af9c3ce1620d43e2b260f633fc857aea",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b0078be220554c958cc7b6e5e3823786",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b65faee70b214a7baa6678d6bbf8c6ec",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b7098b1c5b8d47c09c396c0c81f6cf01",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b7db9c00292c4750a7c5bf7c48d21f37",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b8f6f585008f4ff58c4f098c514968cc",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "b9d821d2dbbe4808b0618cc5fe8bc3d7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "bacaf3cec9944f68a92411da6f8f4bad",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "baf1e693a73c476fb9064f521eb96622",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "be5d533820584f648a9b9e22ac064428",
+    "reason": "incomplete or failed run; retained separately for case review"
+  },
+  {
+    "attempt_id": "be6f57d49bf545938db2a1c3e057eeed",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "bfdccd3b3a414db89898057cf208edc4",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "bfe98592b860448f8cca1f5d759fff0d",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c0670bc3a27f41e88ec4d05f38ea38ac",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c33da8ec6b454393834e1efdd7c948dd",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c68335ec15714d9e9ab50af314afba6d",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c7b8fa57410641c3b789fc875221b0b7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c8f2f12c82394f38b02da7e1c5afcf13",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "c97d7220fc0544179e5b2e55b368b6c7",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "cad5b3d196264be38145b6b2f514acac",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "ce60b69edd9846488f8d8e246c2bd75c",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "cedb392a6e5d44f1980114a6e9bf03fa",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "cfa4a75636364529854a774314a6a6a6",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "d127577a9b0c49cb8c8c91f400355eab",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "d4e323dc395148df9ceedc64969c8f04",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "d636f62fb9cd4cfba245a7c69bf20cea",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "d8b63be0d01b4faf81694a74db71e73f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "d9945f3b1b174a50a62cc72b64111922",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "da0c2943a87f4ca0ab6e0e6cad5337d2",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "da2bfd8d5a764a069d9ac8fd7582dfd6",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "dd64e2e92b014733b4006dc4db3feda0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "dda704c617c44bfbb398c72bfe91705b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "deda3e01b7b0496cba5f5d4d5550b964",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "dff6a60844a7443ea7fe24d8ec366cdd",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e25def0d6a464f6e80cfb5d64d96faa0",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e29ac6bcdf504bcd86ee0a2b52452d26",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e56fdf72c401439da7a1e261a4da07dd",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e6e3ff08f9494ca2aa99b37ddac25a20",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e6ffdb8fb446441fbc637a2163cf08ad",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "e911d95ca8e044e0baeb7322264aec1b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "eab417cf013642e0b1e8baa62a6a9b9f",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "eef96d97aba8437c862778034e6c1321",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "f02a8a49275d4c98b5792f64d164a95b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "f4af9b6413314dc691d39a0ef3d4731b",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "f61d71a8d68746d986ee616c622bdecf",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "f6a3856d086a40a8be4de29e003ae566",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "f9adf3706f7c45b3817429dec9a8d346",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "fe8f10b34c4d4e6a84f628e48130a821",
+    "reason": "legacy recording without pre-update window"
+  },
+  {
+    "attempt_id": "ffe7032f6e26433e94d44d7fbe7aa20c",
+    "reason": "legacy recording without pre-update window"
+  }
+]

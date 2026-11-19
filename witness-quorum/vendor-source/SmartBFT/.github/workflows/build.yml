@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        name: Checkout Code
+
+      - name: Install Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: check go.mod
+        run: |
+          go mod tidy
+          git diff --exit-code go.mod
+
+      - name: check vendor
+        run: |
+          go mod vendor
+          git diff --exit-code
+
+      - name: check protobuf
+        run: |
+          go -C tools install github.com/bufbuild/buf/cmd/buf google.golang.org/protobuf/cmd/protoc-gen-go
+          PATH="$(go env GOPATH)/bin:$PATH" buf generate
+          git diff --exit-code
+
+      - name: golangci-lint
+        run: |
+          go -C tools install github.com/golangci/golangci-lint/v2/cmd/golangci-lint
+          PATH="$(go env GOPATH)/bin:$PATH" golangci-lint run ./...
+
+  build:
+    needs:
+      - validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        name: Checkout Code
+
+      - name: Install Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Test
+        run: |
+          go test -count 1 -race ./...

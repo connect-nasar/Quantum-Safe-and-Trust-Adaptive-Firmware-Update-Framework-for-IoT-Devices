@@ -1,0 +1,2 @@
+# OTA host runtime; tkinter ships with the Python Windows installer.
+cryptography==50.0.1
