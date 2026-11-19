@@ -307,35 +307,40 @@ flowchart TB
         Pub[(Immutable package generations)]
         Observer[Read-only observer :9080]
         GUI --> Bridge --> Signer
-        Signer --> Journal
+        Signer <-->|Read and persist signer state| Journal
         Signer --> Mirror
         Signer --> Pub --> GUI
-        subgraph Nodes[Seven witness processes]
+        subgraph Nodes[Seven witness instances - each has a Python service and Go engine]
             W[Python protocol and application validation]
             Go[Go SmartBFT engine]
             DB[(Per-node SQLite ledger)]
             WAL[(Per-node consensus WAL)]
             W <--> Go
-            W --> DB
-            Go --> WAL
+            W <-->|Read and persist ledger| DB
+            Go <-->|Consensus recovery and persistence| WAL
         end
-        Signer <-->|Five verified approvals| W
-        Observer --> W
+        Signer -->|Authenticated reservation and terminal commands| W
+        W -->|Signed responses - client collects at least five matching approvals| Signer
+        Observer -->|Read-only status queries| W
+        W -->|Status responses| Observer
     end
     subgraph Device[ESP32]
         Client[Download and verify]
         NVS[(ML-KEM private key and version)]
         Anchor[Compiled XMSS public key]
         OTA[Inactive OTA partition]
-        Client --> NVS
+        Client <-->|Read keys and version - persist provisioning and version| NVS
         Anchor --> Client
         Client --> OTA
     end
-    GUI -->|Encrypted package over HTTP| Client
+    Client -->|HTTP manifest and package requests| GUI
+    GUI -->|Manifest and encrypted package files| Client
     Client -->|Status telemetry| GUI
 ```
 
 The publisher key is a trust anchor compiled into the device. The witness genesis and administrator public key pin membership and publisher registration. Witness private identities are separate from the XMSS publisher key.
+
+The witness box represents seven instances of the illustrated Python/Go pair, each with its own ledger and consensus WAL. All seven run on the same operator computer in the native deployment and share its administrative and physical failure domain; the box does not represent seven independent host trust boundaries. The signer's Python client verifies matching signed responses and assembles the authorization certificate from at least five distinct witnesses. The ESP32 verifies the publisher signature and encrypted package, but does not independently enforce the witness certificate.
 
 ### Release sequence
 
