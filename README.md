@@ -16,7 +16,6 @@ The two source folders form one project. Keep their names and sibling relationsh
 - [Verification and tests](#verification-and-tests)
 - [Troubleshooting](#troubleshooting)
 - [Optional synthetic Docker deployment](#optional-synthetic-docker-deployment)
-- [GitHub publishing](#github-publishing)
 - [Third-party notices](#third-party-notices)
 
 ## What the project does
@@ -361,7 +360,10 @@ sequenceDiagram
     S->>S: Persist exact completed package
     S->>W: Report completion
     S->>GUI: Atomically publish generation pointer
-    D->>GUI: Poll manifest and download package
+    D->>GUI: Poll for manifest over HTTP
+    GUI-->>D: Return manifest with available version and sizes
+    D->>GUI: Request encrypted firmware and cryptographic files
+    GUI-->>D: Return ciphertext, KEM ciphertext, nonce, tag, public key and signature
     D->>D: Check version, pinned key and XMSS signature
     D->>D: ML-KEM decapsulation and AES-GCM authentication
     D->>D: Finalize OTA image and reboot
@@ -369,6 +371,8 @@ sequenceDiagram
 ```
 
 Completion reporting is retried if uncertain. Publishing is tied to stored completed results; exact retries return the stored signature/ciphertext rather than signing again.
+
+The ESP32 initiates the HTTP requests; the GUI's HTTP server responds with the manifest and package files. The device then verifies and installs the update.
 
 ### Package construction and verification
 
@@ -506,6 +510,13 @@ The seven statuses should become reachable and eventually agree on height and ti
 The observer is at [http://127.0.0.1:9080](http://127.0.0.1:9080). It is advisory and read-only. Closing the PowerShell window does not stop the witnesses. Rebooting does; run the start script afterward.
 
 ### Fresh installation
+
+Clone the repository and enter its root folder before following the setup steps:
+
+```powershell
+git clone https://github.com/connect-nasar/Quantum-Safe-and-Trust-Adaptive-Firmware-Update-Framework-for-IoT-Devices.git
+Set-Location Quantum-Safe-and-Trust-Adaptive-Firmware-Update-Framework-for-IoT-Devices
+```
 
 A source checkout intentionally contains no private keys, witness identities, ledgers, deployed connection files, recipient key or built executables. Use the following steps only for a **new publisher and device trust setup**. The fresh provisioner refuses an existing publisher/deployment rather than resetting it.
 
@@ -704,62 +715,6 @@ Setup refuses an existing deployment path: provision once, then reuse the existi
 
 On Linux, provisioning as root lets the setup utility assign bind-mounted files to container UID 10001. `docker compose down` retains ledger data. Do not remove it to reuse signing positions. Docker is optional; it is not required to run the normal Windows GUI and witness services.
 
-## GitHub publishing
-
-Use this combined project folder as the repository root. No ZIP or export script is required. The root `.gitignore` keeps the live deployment local while committing the source needed to set up a new installation.
-
-### Files to commit
-
-Commit this README, `.gitignore`, `.gitattributes`, both project source folders, build/provision/start/stop scripts, reusable tests, model artifacts and vendored SmartBFT source. Keep upstream license files. The vendored SmartBFT checkout metadata has been removed so Git records its source as ordinary files, not as an embedded repository or accidental submodule.
-
-The current XMSS verification header contains a **public** key, not a signing secret. Fresh provisioning replaces it with each new installation's publisher public key.
-
-### Files that remain local
-
-- XMSS private keys, witness/client/admin identities and token-derivation secrets;
-- `witness-quorum/runtime/`, signer databases, witness ledgers and consensus WAL;
-- deployed connection/publication pointers, recipient enrollment and served package files;
-- `network_config.local.h`, telemetry, logs and historical deployment reports;
-- `.venv/`, `.tools/`, `.pio/`, caches and compiled binaries/objects.
-
-These resources remain on your computer for the running deployment but are excluded by Git. Do not use `git add -f` to override those exclusions.
-
-### Initialize and push
-
-Create an empty repository in your GitHub account. From this combined project root, substitute your repository URL:
-
-```powershell
-git init
-git branch -M main
-git add .
-git status --short
-git diff --cached --stat
-git commit -m "Add witness-authorized post-quantum ESP32 OTA project"
-git remote add origin https://github.com/YOUR_ACCOUNT/YOUR_REPOSITORY.git
-git push -u origin main
-```
-
-Inspect the staged file list before committing. It must not include the local resources listed above. The `witness-quorum/vendor-source/SmartBFT` directory must contain ordinary tracked source files, not a single mode-160000 Git link.
-
-`.gitignore` does not remove secrets already committed to an old repository's history. These instructions initialize this combined folder, which currently has no project Git history. Do not copy old repository metadata into it.
-
-### Set up a new clone
-
-```powershell
-git clone https://github.com/YOUR_ACCOUNT/YOUR_REPOSITORY.git
-Set-Location YOUR_REPOSITORY
-```
-
-Follow [fresh installation](#fresh-installation): install the tools, create the Python environments, bootstrap/build the witnesses, provision a new publisher, enter local network settings, USB-flash its public-key pin, enroll the device recipient public key, and start the services/GUI.
-
-The repository provides the application and dependency source. Hardware, network configuration, tool installation and private provisioning are required per installation. A clone does not resume your deployed signing identity, and publishing source does not consume your XMSS index.
-
-### Licensing and cleanup
-
-Retain [third-party notices](#third-party-notices) and vendored licenses. Choose a license for your own code before claiming project-wide reuse terms.
-
-Reusable source under `witness-quorum/tests` is maintained development code. Temporary test output and obsolete migration tools have been removed. The scripts inside `witness-quorum/scripts` are the actual build, provisioning and service-management tools; they are needed for setup and operation.
-
 ## Third-party notices
 
 This document records attribution; it does not grant a new license over the entire project.
@@ -776,7 +731,9 @@ The SHA-3/SHAKE code under `Ota_project/crypto-libs/fips202/src` is based on the
 
 ### Embedded ML-KEM and XMSS
 
-Embedded ML-KEM source is under `Ota_project/crypto-libs/mlkem768`; its files retain their upstream provenance and license statements where supplied. XMSS source is under `Ota_project/crypto-libs/xmss`; retain its existing source notices. Do not assume a license for code that has no explicit license declaration.
+Embedded ML-KEM source is under `Ota_project/crypto-libs/mlkem768`; its files retain their upstream provenance and license statements where supplied.
+
+The XMSS implementation under `Ota_project/crypto-libs/xmss` follows the XMSS specification in [RFC 8391](https://www.rfc-editor.org/rfc/rfc8391) and has been heavily optimized for this project's ESP32 firmware-update workflow. Retain its existing source notices. Do not assume a license for code that has no explicit license declaration.
 
 ### Installed dependencies
 
