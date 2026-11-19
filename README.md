@@ -62,7 +62,7 @@ The tree below lists all checked-in project files, including the C cryptographic
 │   │       │   └── trust_model.py  # Advisory readiness and availability model
 │   │       ├── esp32_ota_hybrid/
 │   │       │   ├── src/
-│   │       │   │   ├── journal_stress.h  # Device journal stress support
+│   │       │   │   ├── device_stress_test.h  # Optional ESP32 RAM/CPU stress testing
 │   │       │   │   ├── main.cpp  # ESP32 firmware download, verification and installation
 │   │       │   │   ├── network_config.example.h  # Example network configuration
 │   │       │   │   └── xmss_trusted_key.h  # Pinned publisher XMSS public key
@@ -276,12 +276,6 @@ XMSS mode 1 has 1,024 theoretical leaves; this implementation reserves the final
 Tests are useful source code and are retained. Generated test directories, caches and disposable deployments are excluded from GitHub. See [testing instructions](#verification-and-tests) for commands and cleanup, including the distinction between unit tests and integration tests that pause the running quorum.
 
 A signer preflight checks availability without publishing a firmware release. A full live OTA operation consumes signing state; it is not a disposable smoke test.
-
-## Preparing a GitHub upload
-
-Push this combined project folder directly. The root `.gitignore` excludes private keys, runtime state, Wi-Fi settings, telemetry, downloaded tools and generated binaries. Source code, dependencies, reusable tests and this README are committed normally. Follow [GitHub publishing](#github-publishing) below.
-
-A new clone needs the tools and [fresh installation](#fresh-installation) steps. It generates its own publisher/witness identities and enrolls its own ESP32; it does not inherit your private signing state.
 
 ## Scope and limitations
 
